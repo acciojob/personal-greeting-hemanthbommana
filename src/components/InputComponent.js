@@ -1,22 +1,22 @@
-import React,{useState}from "react";
+import React, { useState } from "react";
 
+export const InputComponents = () => {
+  const [text, setText] = useState("");
 
+  return (
+    <div>
+      <label htmlFor="nameInput">Enter your name:</label><br/>
 
-export const InputComponents = ()=>{
-    const [text,setText] = useState("");
+      <input
+        id="nameInput"
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
 
-    return (
-    <div id="inputText">
-        <label>Enter your name:</label><br/>
-        <input type="text" onChange={(e)=>{
-            setText(e.target.value);
-            
-        }}>
-            
-        </input>
-        {text && <h2>Hello {text}</h2>}
+      {text && <h2>Hello, {text}!</h2>}
     </div>
-    )
-}
+  );
+};
 
 export default InputComponents;
